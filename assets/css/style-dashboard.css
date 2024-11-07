@@ -1,0 +1,52 @@
+.dropdown-menu a:active {
+    background-color: #28A745;
+}
+a {
+	color: #259B40;
+}
+a:hover {
+	color: #005F56;
+	text-decoration: none;
+}
+.nav-item .nav-link.active {
+    background-color: #28A745 !important;
+}
+
+input:focus, select:focus, textarea:focus {
+	border: 1px solid #259B40 !important;
+	box-shadow: 0 0 6px rgba(7, 240, 77, .5) !important;
+}
+
+.my-alert-success {
+	border: 1px solid #28A745 !important;
+	color: #28A745 !important;
+}
+.my-alert-success .close {
+	color: #113f1c !important;
+}
+.my-alert-success .close:hover {
+	color: #28A745 !important;
+}
+
+.my-alert-danger {
+	border: 1px solid #b10716 !important;
+	color: #b10716 !important;
+}
+.my-alert-danger .close {
+	color: #690911 !important;
+}
+.my-alert-danger .close:hover {
+	color: #b10716 !important;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	scrollbar-color: #F0F0F0 #808080;
+}
+
+::-webkit-scrollbar-thumb {
+	scrollbar-highlight-color: #026057;
+	background-color: #027057;
+	border-radius: 10px;
+	border: 2px solid #fff;
+}
