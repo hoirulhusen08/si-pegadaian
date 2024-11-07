@@ -2,9 +2,9 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Waktu pembuatan: 14 Okt 2024 pada 07.35
--- Versi server: 8.3.0
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 07 Nov 2024 pada 09.04
+-- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -24,23 +24,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `kode_instansi` varchar(50) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `judul_web` varchar(20) NOT NULL,
+  `tagline_web_slide1` varchar(50) NOT NULL,
+  `tagline_web_slide2` varchar(50) NOT NULL,
+  `caption_web_slide1` varchar(50) NOT NULL,
+  `caption_web_slide2` varchar(50) NOT NULL,
+  `tentang_web` longtext NOT NULL,
+  `footer_web` varchar(50) NOT NULL,
+  `alamat_instansi` text NOT NULL,
+  `telp_pusat` varchar(15) NOT NULL,
+  `telp` varchar(15) NOT NULL,
+  `telp_2` varchar(15) NOT NULL,
+  `whatsapp` varchar(15) NOT NULL,
+  `logo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `settings`
+--
+
+INSERT INTO `settings` (`id`, `kode_instansi`, `id_user`, `judul_web`, `tagline_web_slide1`, `tagline_web_slide2`, `caption_web_slide1`, `caption_web_slide2`, `tentang_web`, `footer_web`, `alamat_instansi`, `telp_pusat`, `telp`, `telp_2`, `whatsapp`, `logo`) VALUES
+(1, 'PGD-CB-BDRJY', 1, 'SI-PEGADAIAN', 'Gadai dengan Mudah, Dapatkan Dana Cepat!', 'Jangkau Mimpi Anda dengan Solusi Pinjaman Terperca', 'Temukan cara tercepat dan termudah untuk mendapatk', 'Jangan biarkan kekurangan dana menghalangi impian ', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt temporibus voluptate ab sunt nemo id esse, repudiandae iusto optio adipisci asperiores mollitia sint architecto soluta, tempore delectus exercitationem provident officiis expedita. Quos, officiis modi odit tempore eos quis labore dolorum delectus amet, ipsa ut molestias quo deleniti quam, nemo sint velit itaque voluptatum soluta quidem. Temporibus voluptas ab animi consequuntur laborum quam at eum voluptatum neque commodi dolorem natus dicta odit corporis, eius ratione odio rem. Dolores ipsam provident, veniam eum voluptatum rem obcaecati nobis nulla totam asperiores, eaque eveniet, consectetur tempore a illo praesentium et esse modi dicta dolor?\r\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt temporibus voluptate ab sunt nemo id esse, repudiandae iusto optio adipisci asperiores mollitia sint architecto soluta, tempore delectus exercitationem provident officiis expedita. Quos, officiis modi odit tempore eos quis labore dolorum delectus amet, ipsa ut molestias quo deleniti quam, nemo sint velit itaque voluptatum soluta quidem. Temporibus voluptas ab animi consequuntur laborum quam at eum voluptatum neque commodi dolorem natus dicta odit corporis, eius ratione odio rem. Dolores ipsam provident, veniam eum voluptatum rem obcaecati nobis nulla totam asperiores, eaque eveniet, consectetur tempore a illo praesentium et esse modi dicta dolor?', 'Copyright 2024 SI-Pegadaian | All Rights Reserved', 'Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia', '1500569', '021 3155 550', '021 8063 5162', '08111 1500 569', 'logo.png');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `kode_user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `kode_user` varchar(50) NOT NULL,
   `name` varchar(25) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `telp` int NOT NULL,
+  `telp` int(11) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `role_id` int NOT NULL,
-  `is_active` int NOT NULL,
-  `date_created` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `role_id` int(11) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
@@ -49,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `kode_user`, `name`, `email`, `telp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'ID12024010', 'Khoirul Husen', 'hoirulhusen08@gmail.com', 0, 'default.jpg', '$2y$10$nr.foXCJokGCEejP5xh1xuD4mP0hSIN9C1ttIsGKFWLCvcaSTyup2', 1, 1, 1712589712),
 (2, 'ID12024011', 'Muhammad Alfarizi', 'mahasiswa@gmail.com', 0, 'default.jpg', '$2y$10$EYHL90J3KjMLmTa1Jt6uLuoZfjaBc3TCVpnjumYpfw1B51dpDddvG', 2, 1, 1712589882),
-(3, 'ID12024017', 'Administrator', 'admin@gmail.com', 0, '500-x-500-Blue.png', '$2y$10$1TT/nBWOqjmQjZeyNFVJheGP9JVYykXKKdApLQAkAV5bhu4tuNk/2', 1, 1, 1712666172),
-(6, 'ID-19-05-2024-3', 'Asep Juan', 'juanasep59@gmail.com', 0, '500-x-500.png', '$2y$10$A.oCluMm3PVy1GgQC.BKieRV4BOxcZPvAaRSZ.mH6Lb/QnLetr.Ku', 2, 1, 1716137685),
+(3, 'ID12024017', 'Administrators', 'admin@gmail.com', 0, '500-x-500-Blue.png', '$2y$10$bxLYmUvJe/kamJ9X0se8e.uVvBzjEpcJo.ipWpuSwrF1tCZeHlsK2', 1, 1, 1712666172),
+(6, 'ID-19-05-2024-3', 'Asep Juannn', 'juanasep59@gmail.com', 0, '500-x-500.png', '$2y$10$A.oCluMm3PVy1GgQC.BKieRV4BOxcZPvAaRSZ.mH6Lb/QnLetr.Ku', 2, 1, 1716137685),
 (10, 'ID-20-05-2024-6', 'Muhammad Alfarizi', 'muhammadalfarizi041@gmail.com', 0, 'default.jpg', '$2y$10$DON26RvdJNRgJMRYiohVAOzM5eD1HIsAWTE8vg9W.sqqxyfFkl5em', 2, 0, 1716218010);
 
 -- --------------------------------------------------------
@@ -59,12 +89,10 @@ INSERT INTO `users` (`id`, `kode_user`, `name`, `email`, `telp`, `image`, `passw
 -- Struktur dari tabel `users_role`
 --
 
-DROP TABLE IF EXISTS `users_role`;
-CREATE TABLE IF NOT EXISTS `users_role` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `role` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `users_role` (
+  `id` int(11) NOT NULL,
+  `role` varchar(25) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users_role`
@@ -81,13 +109,11 @@ INSERT INTO `users_role` (`id`, `role`) VALUES
 -- Struktur dari tabel `user_access_menus`
 --
 
-DROP TABLE IF EXISTS `user_access_menus`;
-CREATE TABLE IF NOT EXISTS `user_access_menus` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `role_id` int NOT NULL,
-  `menu_id` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `user_access_menus` (
+  `id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_access_menus`
@@ -117,12 +143,10 @@ INSERT INTO `user_access_menus` (`id`, `role_id`, `menu_id`) VALUES
 -- Struktur dari tabel `user_menus`
 --
 
-DROP TABLE IF EXISTS `user_menus`;
-CREATE TABLE IF NOT EXISTS `user_menus` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `menu` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `user_menus` (
+  `id` int(11) NOT NULL,
+  `menu` varchar(25) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_menus`
@@ -140,16 +164,14 @@ INSERT INTO `user_menus` (`id`, `menu`) VALUES
 -- Struktur dari tabel `user_sub_menus`
 --
 
-DROP TABLE IF EXISTS `user_sub_menus`;
-CREATE TABLE IF NOT EXISTS `user_sub_menus` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `menu_id` int NOT NULL,
+CREATE TABLE `user_sub_menus` (
+  `id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
   `title` varchar(25) NOT NULL,
   `url` varchar(128) NOT NULL,
   `icon` varchar(128) NOT NULL,
-  `is_active` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `is_active` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_sub_menus`
@@ -170,14 +192,12 @@ INSERT INTO `user_sub_menus` (`id`, `menu_id`, `title`, `url`, `icon`, `is_activ
 -- Struktur dari tabel `user_token`
 --
 
-DROP TABLE IF EXISTS `user_token`;
-CREATE TABLE IF NOT EXISTS `user_token` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_token` (
+  `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `token` varchar(128) NOT NULL,
-  `date_created` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `date_created` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_token`
@@ -185,6 +205,98 @@ CREATE TABLE IF NOT EXISTS `user_token` (
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (4, 'muhammadalfarizi041@gmail.com', 'iq22QdVCP2K7J65MvNf9r0bEYBLAyOtB4HlM1JtjP6I=', 1716218010);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `users_role`
+--
+ALTER TABLE `users_role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user_access_menus`
+--
+ALTER TABLE `user_access_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user_menus`
+--
+ALTER TABLE `user_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user_sub_menus`
+--
+ALTER TABLE `user_sub_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `users_role`
+--
+ALTER TABLE `users_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_access_menus`
+--
+ALTER TABLE `user_access_menus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_menus`
+--
+ALTER TABLE `user_menus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_sub_menus`
+--
+ALTER TABLE `user_sub_menus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
