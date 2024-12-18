@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Des 2024 pada 10.51
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.0.30
+-- Generation Time: Dec 18, 2024 at 04:57 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -32,10 +32,10 @@ CREATE TABLE `settings` (
   `kode_instansi` varchar(50) NOT NULL,
   `id_user` int(11) NOT NULL,
   `judul_web` varchar(20) NOT NULL,
-  `tagline_web_slide1` varchar(50) NOT NULL,
-  `tagline_web_slide2` varchar(50) NOT NULL,
-  `caption_web_slide1` varchar(50) NOT NULL,
-  `caption_web_slide2` varchar(50) NOT NULL,
+  `tagline_web_slide1` varchar(60) NOT NULL,
+  `tagline_web_slide2` varchar(60) NOT NULL,
+  `caption_web_slide1` varchar(150) NOT NULL,
+  `caption_web_slide2` varchar(150) NOT NULL,
   `tentang_web` longtext NOT NULL,
   `footer_web` varchar(50) NOT NULL,
   `alamat_instansi` text NOT NULL,
@@ -47,16 +47,16 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `kode_instansi`, `id_user`, `judul_web`, `tagline_web_slide1`, `tagline_web_slide2`, `caption_web_slide1`, `caption_web_slide2`, `tentang_web`, `footer_web`, `alamat_instansi`, `telp_pusat`, `telp`, `telp_2`, `whatsapp`, `logo`) VALUES
-(1, 'PGD-CB-BDRJY', 1, 'SI-PEGADAIAN', 'Gadai dengan Mudah, Dapatkan Dana Cepat!', 'Jangkau Mimpi Anda dengan Solusi Pinjaman Terperca', 'Temukan cara tercepat dan termudah untuk mendapatk', 'Jangan biarkan kekurangan dana menghalangi impian ', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt temporibus voluptate ab sunt nemo id esse, repudiandae iusto optio adipisci asperiores mollitia sint architecto soluta, tempore delectus exercitationem provident officiis expedita. Quos, officiis modi odit tempore eos quis labore dolorum delectus amet, ipsa ut molestias quo deleniti quam, nemo sint velit itaque voluptatum soluta quidem. Temporibus voluptas ab animi consequuntur laborum quam at eum voluptatum neque commodi dolorem natus dicta odit corporis, eius ratione odio rem. Dolores ipsam provident, veniam eum voluptatum rem obcaecati nobis nulla totam asperiores, eaque eveniet, consectetur tempore a illo praesentium et esse modi dicta dolor?\r\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt temporibus voluptate ab sunt nemo id esse, repudiandae iusto optio adipisci asperiores mollitia sint architecto soluta, tempore delectus exercitationem provident officiis expedita. Quos, officiis modi odit tempore eos quis labore dolorum delectus amet, ipsa ut molestias quo deleniti quam, nemo sint velit itaque voluptatum soluta quidem. Temporibus voluptas ab animi consequuntur laborum quam at eum voluptatum neque commodi dolorem natus dicta odit corporis, eius ratione odio rem. Dolores ipsam provident, veniam eum voluptatum rem obcaecati nobis nulla totam asperiores, eaque eveniet, consectetur tempore a illo praesentium et esse modi dicta dolor?', 'Copyright 2024 SI-Pegadaian | All Rights Reserved', 'Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia', '1500569', '021 3155 550', '021 8063 5162', '08111 1500 569', 'logo.png');
+(1, 'PGD-CB-BDRJY', 3, 'SI-PEGADAIAN', 'Gadai dengan Mudah, Dapatkan Dana Cepat!', 'Jangkau Mimpi Anda dengan Solusi Pinjaman Terpercaya!', 'Temukan cara tercepat dan termudah untuk mendapatkan dana yang Anda butuhkan dengan sistem informasi pegadaian kami.', 'Jangan biarkan kekurangan dana menghalangi impian Anda. Dapatkan pinjaman cepat dan terpercaya melalui layanan kami.', '<h5 class=\"\"><b>Tentang Sistem Informasi Pegadaian</b></h5><p>Selamat datang di Sistem Informasi Pegadaian, sebuah platform digital yang dirancang untuk membantu pegadaian dalam mendisplay produk-produk mereka dengan cara yang lebih mudah, menarik, dan informatif. Sistem ini bertujuan untuk meningkatkan pengalaman pengguna dalam memahami layanan dan produk yang ditawarkan, baik produk gadai maupun non-gadai.</p><h6 class=\"\"><b>Tujuan Kami</b></h6><p>Website ini dikembangkan untuk:</p><ul><li><span style=\"font-size: 1rem;\">Mempermudah pelanggan dalam menemukan informasi tentang produk gadai dan non-gadai yang ditawarkan oleh pegadaian.</span></li><li><span style=\"font-size: 1rem;\">Memberikan pengalaman visual yang lebih baik untuk mendisplay produk.</span></li><li><span style=\"font-size: 1rem;\">Menyediakan akses cepat dan praktis terhadap informasi layanan pegadaian.</span></li></ul><h6 class=\"\"><b>Fitur Utama</b></h6><ol><li>Display Produk Gadai: Menampilkan produk gadai seperti emas, barang elektronik, kendaraan, dan barang berharga lainnya yang dapat dijadikan jaminan.</li><li>Display Produk Non-Gadai:&nbsp;Memberikan informasi tentang produk non-gadai seperti investasi, tabungan emas, pembiayaan, atau layanan lainnya yang tersedia di pegadaian.</li><li>Informasi Lengkap Produk:&nbsp;Setiap produk dilengkapi dengan deskripsi detail, syarat dan ketentuan, serta informasi harga atau bunga yang transparan.</li><li>Navigasi yang Mudah:&nbsp;Antarmuka website dirancang sederhana namun menarik, memudahkan pengguna untuk menjelajahi semua produk dan layanan.</li><li>Integrasi Fitur Kontak:&nbsp;Pelanggan dapat langsung menghubungi pegadaian melalui fitur kontak yang tersedia untuk konsultasi atau pertanyaan lebih lanjut.</li></ol><h6 class=\"\"><b>Komitmen Kami</b></h6><p>Kami berkomitmen untuk mendukung transformasi digital di bidang pegadaian dengan menyediakan sistem informasi yang handal, inovatif, dan berorientasi pada kepuasan pelanggan. Dengan Sistem Informasi Pegadaian ini, kami berharap dapat membantu pegadaian memperluas jangkauan produk mereka dan memberikan layanan terbaik kepada masyarakat.</p><p>Jelajahi website ini untuk menemukan produk dan layanan terbaik yang sesuai dengan kebutuhan Anda!</p>', 'SI-Pegadaian', 'Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia', '1500 569', '021 3155 550', '021 8063 5162', '08111 1500 569', '1734532868_logo.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -73,7 +73,7 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `kode_user`, `name`, `email`, `telp`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
@@ -86,7 +86,7 @@ INSERT INTO `users` (`id`, `kode_user`, `name`, `email`, `telp`, `image`, `passw
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_role`
+-- Table structure for table `users_role`
 --
 
 CREATE TABLE `users_role` (
@@ -95,7 +95,7 @@ CREATE TABLE `users_role` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users_role`
+-- Dumping data for table `users_role`
 --
 
 INSERT INTO `users_role` (`id`, `role`) VALUES
@@ -106,7 +106,7 @@ INSERT INTO `users_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menus`
+-- Table structure for table `user_access_menus`
 --
 
 CREATE TABLE `user_access_menus` (
@@ -116,7 +116,7 @@ CREATE TABLE `user_access_menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_access_menus`
+-- Dumping data for table `user_access_menus`
 --
 
 INSERT INTO `user_access_menus` (`id`, `role_id`, `menu_id`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `user_access_menus` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menus`
+-- Table structure for table `user_menus`
 --
 
 CREATE TABLE `user_menus` (
@@ -149,7 +149,7 @@ CREATE TABLE `user_menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_menus`
+-- Dumping data for table `user_menus`
 --
 
 INSERT INTO `user_menus` (`id`, `menu`) VALUES
@@ -161,7 +161,7 @@ INSERT INTO `user_menus` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menus`
+-- Table structure for table `user_sub_menus`
 --
 
 CREATE TABLE `user_sub_menus` (
@@ -174,7 +174,7 @@ CREATE TABLE `user_sub_menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_sub_menus`
+-- Dumping data for table `user_sub_menus`
 --
 
 INSERT INTO `user_sub_menus` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -189,7 +189,7 @@ INSERT INTO `user_sub_menus` (`id`, `menu_id`, `title`, `url`, `icon`, `is_activ
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -200,7 +200,7 @@ CREATE TABLE `user_token` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_token`
+-- Dumping data for table `user_token`
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
@@ -211,89 +211,89 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 --
 
 --
--- Indeks untuk tabel `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users_role`
+-- Indexes for table `users_role`
 --
 ALTER TABLE `users_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_access_menus`
+-- Indexes for table `user_access_menus`
 --
 ALTER TABLE `user_access_menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_menus`
+-- Indexes for table `user_menus`
 --
 ALTER TABLE `user_menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_sub_menus`
+-- Indexes for table `user_sub_menus`
 --
 ALTER TABLE `user_sub_menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `users_role`
+-- AUTO_INCREMENT for table `users_role`
 --
 ALTER TABLE `users_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menus`
+-- AUTO_INCREMENT for table `user_access_menus`
 --
 ALTER TABLE `user_access_menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menus`
+-- AUTO_INCREMENT for table `user_menus`
 --
 ALTER TABLE `user_menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menus`
+-- AUTO_INCREMENT for table `user_sub_menus`
 --
 ALTER TABLE `user_sub_menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
