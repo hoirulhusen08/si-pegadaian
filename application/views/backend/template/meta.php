@@ -9,6 +9,9 @@
     <!-- Icon Bootstrap -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/bootstrap/icon/font/bootstrap-icons.min.css'); ?>">
 
+    <!-- summernote -->
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/summernote/summernote-bs4.min.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css">

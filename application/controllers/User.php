@@ -13,6 +13,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Profil Saya';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
         // Get the logged-in user ID from the session
         $logged_in_user_id = $this->session->userdata('role_id');
@@ -30,6 +31,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Ubah Profil';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
         // Rule validation
         $this->form_validation->set_rules('name', 'Name', 'required|trim', [
@@ -100,6 +102,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Ubah Password';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
         // Rule validation
         $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim', [

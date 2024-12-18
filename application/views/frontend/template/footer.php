@@ -3,10 +3,11 @@
     <div class="container">
         <div class="row mt-2 justify-content-between">
             <div class="col-lg-6 mt-5 call-center">
-                <p class="title-foot">Info Kantor Pusat</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia</p>
-                <p><i class="bi bi-telephone-fill"></i> 021 3155 550 atau <i class="bi bi-telephone-fill"></i> 021 8063 5162</p>
-                <p><i class="bi bi-whatsapp"></i> 08111 1500 569 <small>(WhatsApp Chat)</small></p>
+                <p class="title-foot">Hubungi Kami Melalui</p>
+                <p><i class="bi bi-geo-alt-fill"></i> <?= $setting['alamat_instansi']; ?></p>
+                <p><i class="bi bi-telephone-fill"></i> <?= $setting['telp']; ?> atau <i class="bi bi-telephone-fill"></i> <?= $setting['telp_2']; ?></p>
+                <p><i class="bi bi-whatsapp"></i> <?= $setting['whatsapp']; ?> <small>(WhatsApp Chat)</small></p>
+                <p><i class="bi bi-telephone-fill"></i> <?= $setting['telp_pusat']; ?> <small>(Telpon Pusat)</small></p>
                 <p><img src="<?= base_url('assets/image/call-center.png'); ?>" width="200"></p>
             </div>
             <div class="col-lg-4 mt-5">
@@ -20,7 +21,7 @@
         <hr>
         <div class="row text-center">
             <div class="col-lg">
-                <p>Copyright &copy; <?= date('Y'); ?> <a href="<?= base_url('/'); ?>">SI-Pegadaian</a> | All Rights Reserved</p>
+                <p>Copyright &copy; <?= date('Y'); ?> <a href="<?= base_url('/'); ?>"><?= $setting['footer_web']; ?></a> | All Rights Reserved</p>
             </div>
         </div>
     </div>
@@ -96,7 +97,7 @@
                 </button>
             </div>
             <div class="modal-body text-justify">
-                <p>Selamat datang di platform <strong>"Administrasi Surat Menyurat Fakultas Teknik Ilmu Komputer pada Universitas STKIP Muhammadiah Kotabumi"</strong>. Harap perhatikan ketentuan penggunaan berikut sebelum menggunakan layanan kami :</p>
+                <p>Selamat datang di platform <strong>"Sistem Informasi Pegadaian cabang Bandar Jaya"</strong>. Harap perhatikan ketentuan penggunaan berikut sebelum menggunakan layanan kami :</p>
                 <ol>
                     <li>Kewajiban Pengguna : Pengguna diharapkan untuk menggunakan layanan ini sesuai dengan ketentuan yang berlaku dan tidak melakukan tindakan yang melanggar hukum atau norma yang berlaku.</li>
                     <li>Keamanan Akun : Setiap pengguna bertanggung jawab untuk menjaga keamanan dan kerahasiaan akun mereka. Tidak diperkenankan untuk memberikan akses akun kepada pihak lain.</li>
@@ -126,11 +127,11 @@
             <div class="modal-body text-justify">
                 <p>Privasi pengguna adalah prioritas bagi kami. Berikut adalah kebijakan privasi kami untuk menjaga informasi pribadi Anda :</p>
                 <ol>
-                    <li>Pengumpulan Data : Kami hanya akan mengumpulkan data pribadi yang diperlukan untuk menyediakan layanan Administrasi Surat Menyurat. Informasi yang kami kumpulkan akan digunakan sesuai dengan tujuan yang telah ditetapkan.</li>
+                    <li>Pengumpulan Data : Kami hanya akan mengumpulkan data pribadi yang diperlukan untuk menyediakan layanan Sistem Informasi Pegadaian. Informasi yang kami kumpulkan akan digunakan sesuai dengan tujuan yang telah ditetapkan.</li>
                     <li>Penggunaan Data : Data pribadi yang Anda berikan akan digunakan untuk keperluan Administrasi dan Komunikasi terkait dengan layanan kami. Kami tidak akan menggunakan atau mengungkapkan informasi pribadi tanpa izin Anda.</li>
                     <li>Keamanan Data : Kami mengimplementasikan langkah-langkah keamanan yang sesuai untuk melindungi informasi pribadi dari akses yang tidak sah, penggunaan, atau pengungkapan yang tidak sah.</li>
                     <li>Pembaruan Kebijakan : Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. Perubahan signifikan akan diberitahukan kepada pengguna melalui pemberitahuan di situs web atau melalui email.</li>
-                    <li>Kontak Kami : Jika Anda memiliki pertanyaan atau kekhawatiran tentang kebijakan privasi kami, jangan ragu untuk menghubungi kami melalui <a href="mailto:humas@umko.ac.id">humas@umko.ac.id</a>.</li>
+                    <li>Kontak Kami : Jika Anda memiliki pertanyaan atau kekhawatiran tentang kebijakan privasi kami, jangan ragu untuk menghubungi kami melalui kontak yang tertera.</li>
                 </ol>
                 <p>Demikian ketentuan singkat yang dapat kami informasikan, untuk detail informasi lengkapnya bisa menghubungi kontak yang tertera diatas.</p>
             </div>

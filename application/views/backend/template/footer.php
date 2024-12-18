@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; <?= date('Y'); ?> <a href="#">SI-Pegadaian</a>.</strong>
+    <strong>Copyright &copy; <?= date('Y'); ?> <a href="<?= base_url('/admin'); ?>"><?= $setting['footer_web']; ?></a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> <?= $_ENV['APP_VERSION']; ?>

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 
 
-    <title><?= $title; ?></title>
+    <title><?= $title; ?> - <?= $setting['judul_web']; ?></title>
 </head>
 
 <body>

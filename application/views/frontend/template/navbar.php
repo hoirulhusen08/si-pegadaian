@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
     <div class="container">
         <a class="navbar-brand" href="<?= base_url('/'); ?>">
-            <img src="<?= base_url('assets/image/logo.png'); ?>" width="30" height="30" class="d-inline-block align-top" alt="">
-            SI-Pegadaian
+            <img src="<?= base_url('assets/image/') . $setting['logo']; ?>" width="30" height="30" class="d-inline-block align-top" alt="">
+            <?= $setting['judul_web']; ?>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
                     <a class="nav-link" href="<?= base_url('/'); ?>">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
+                    <a class="nav-link" href="<?= base_url('about'); ?>">Tentang Kami</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">

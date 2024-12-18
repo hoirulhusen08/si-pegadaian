@@ -15,8 +15,8 @@
                             <?php if ($this->session->userdata('email')) : ?>
                                 <p class="greating lead">Hi, <span><?= $user['name']; ?></span></p>
                             <?php endif; ?>
-                            <h2 class="display-4">Gadai dengan Mudah, Dapatkan Dana Cepat!</h2>
-                            <p class="lead">Temukan cara tercepat dan termudah untuk mendapatkan dana yang Anda butuhkan dengan sistem informasi pegadaian kami.</p>
+                            <h2 class="display-4"><?= $setting['tagline_web_slide1']; ?></h2>
+                            <p class="lead"><?= $setting['caption_web_slide1']; ?></p>
                         </div>
                         <div class="col-lg-6 img-container-banner">
                             <img src="<?= base_url('assets/image/banner/service.png'); ?>">
@@ -36,8 +36,8 @@
                             <?php if ($this->session->userdata('email')) : ?>
                                 <p class="greating lead">Hi, <span><?= $user['name']; ?></span></p>
                             <?php endif; ?>
-                            <h2 class="display-4">Jangkau Mimpi Anda dengan Solusi Pinjaman Terpercaya!</h2>
-                            <p class="lead">Jangan biarkan kekurangan dana menghalangi impian Anda. Dapatkan pinjaman cepat dan terpercaya melalui layanan kami.</p>
+                            <h2 class="display-4"><?= $setting['tagline_web_slide2']; ?></h2>
+                            <p class="lead"><?= $setting['caption_web_slide2']; ?></p>
                         </div>
                         <div class="col-lg-6 img-container-banner">
                             <img src="<?= base_url('assets/image/banner/promo.png'); ?>">

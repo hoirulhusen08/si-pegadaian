@@ -17,6 +17,7 @@ class Admin extends CI_Controller
 
 		$data['users_count'] = $this->db->count_all('users');
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
 		$this->load->view('backend/admin/index', $data);
 	}
@@ -27,6 +28,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'Peran';
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
 		$data['roles'] = $this->db->order_by('id', 'DESC')->get('users_role')->result_array();
 
@@ -110,6 +112,7 @@ class Admin extends CI_Controller
 		$data['mainTitle'] = 'Peran';
 		$data['title'] = 'Hak Akses';
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
 		$data['role'] = $this->db->get_where('users_role', ['id' => $role_id])->row_array();
 
@@ -149,6 +152,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'Manajemen Pengguna';
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 
 		$data['roles'] = $this->db->get('users_role')->result_array();
 
@@ -412,96 +416,101 @@ class Admin extends CI_Controller
 
 	public function settings()
 	{
-		if ($this->form_validation->run() == false) {
-			// Info Important
-			$data['title'] = 'Pengaturan';
-			$data['users_count'] = $this->db->count_all('users');
-			$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		// Aturan validasi form
+		$this->form_validation->set_rules('judul_web', 'Judul Web', 'required');
+		$this->form_validation->set_rules('tagline_web_slide1', 'Tagline Slide 1', 'required');
+		$this->form_validation->set_rules('tagline_web_slide2', 'Tagline Slide 2', 'required');
+		$this->form_validation->set_rules('caption_web_slide1', 'Caption Slide 1', 'required');
+		$this->form_validation->set_rules('caption_web_slide2', 'Caption Slide 2', 'required');
 
+		$data['title'] = 'Pengaturan Web';
+		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
+
+		if ($this->form_validation->run() == false) {
 			$this->load->view('backend/admin/settings', $data);
 		} else {
-			$id = $this->input->post('id');
-			$is_active = $this->input->post('is_active');
-			$name = $this->input->post('name');
-			$email = $this->input->post('email');
-			$role_id = $this->input->post('role_id');
-			$password = $this->input->post('password');
+			// Data input dari form
+			$id = $data['setting']['id'];
+			$kode_instansi = $data['setting']['kode_instansi'];
+			$id_user = $data['user']['id'];
+			$judul_web = htmlspecialchars($this->input->post('judul_web'), ENT_QUOTES);
+			$tagline_web_slide1 = htmlspecialchars($this->input->post('tagline_web_slide1'), ENT_QUOTES);
+			$tagline_web_slide2 = htmlspecialchars($this->input->post('tagline_web_slide2'), ENT_QUOTES);
+			$caption_web_slide1 = htmlspecialchars($this->input->post('caption_web_slide1'), ENT_QUOTES);
+			$caption_web_slide2 = htmlspecialchars($this->input->post('caption_web_slide2'), ENT_QUOTES);
+			$tentang_web = $this->input->post('tentang_web');
+			$footer_web = $this->input->post('footer_web');
+			$alamat_instansi = $this->input->post('alamat_instansi');
+			$telp_pusat = $this->input->post('telp_pusat');
+			$telp = $this->input->post('telp');
+			$telp_2 = $this->input->post('telp_2');
+			$whatsapp = $this->input->post('whatsapp');
 
-			// Cek jika password diubah
-			if (!empty($password)) {
-				if (password_verify($password, $user['user']['password'])) {
-					// Jika error, pass baru sama dengan pass lama
-					$this->session->set_flashdata('swal_icon', 'error');
-					$this->session->set_flashdata('swal_title', 'Oops...');
-					$this->session->set_flashdata('swal_text', 'Password baru sama dengan password lama!');
-					redirect('admin/settings');
-				} else {
-					$password = password_hash($password, PASSWORD_DEFAULT);
-				}
-			} else {
-				// Gunakan password lama jika tidak ada perubahan
-				$password = $user['user']['password'];
-			}
-
-			// Cek jika ada gambar yg diupload
-			$upload_image = $_FILES['image']['name'];
-
-			if ($upload_image) {
+			// Cek jika ada logo yang diupload
+			$logo = $_FILES['logo']['name'];
+			if ($logo) {
 				$config['allowed_types']    = 'gif|jpg|jpeg|png';
-				$config['max_size']         = '2048';
-				$config['upload_path']      = './assets/image/profile/';
+				$config['max_size']         = '2048'; // Maksimum 2MB
+				$config['upload_path']      = './assets/image/';
+				$config['file_name']        = time() . '_' . $_FILES['logo']['name']; // Tambahkan timestamp ke nama file
 
 				$this->load->library('upload', $config);
 
-				if ($this->upload->do_upload('image')) {
-					$old_image = $user['user']['image'];
-					if ($old_image != 'default.jpg') {
-						unlink(FCPATH . 'assets/image/profile/' . $old_image);
+				if ($this->upload->do_upload('logo')) {
+					// Hapus logo lama jika bukan default
+					$old_logo = $data['setting']['logo'];
+					if ($old_logo && $old_logo != 'default.jpg') {
+						@unlink(FCPATH . 'assets/image/' . $old_logo);
 					}
 
-					$new_image = $this->upload->data('file_name');
-					$this->db->set('image', $new_image);
+					// Ambil nama file baru yang diupload
+					$new_logo = $this->upload->data('file_name');
+					$this->db->set('logo', $new_logo);
 				} else {
+					// Ambil error dari upload
 					$error = $this->upload->display_errors();
 
-					if (strpos($error, 'The uploaded file exceeds the maximum allowed size in your PHP configuration file') !== false) {
+					// Custom pesan error
+					if (strpos($error, 'exceeds the maximum size allowed') !== false || strpos($error, 'is larger than the permitted size') !== false) {
 						$error = 'Ukuran gambar maksimum 2MB';
 					} else if (strpos($error, 'The filetype you are attempting to upload is not allowed') !== false) {
 						$error = 'Format gambar harus (GIF, JPG, PNG)';
 					}
+
 					$this->session->set_flashdata('swal_icon', 'error');
-					$this->session->set_flashdata('swal_title', 'Gagal Mengunggah Gambar');
+					$this->session->set_flashdata('swal_title', 'Gagal Mengunggah Logo');
 					$this->session->set_flashdata('swal_text', $error);
-					redirect('admin/manageAllUser');
+					redirect('admin/settings');
 					return;
 				}
 			}
-			// End upload image
 
-			$data = [
-				'is_active' => $is_active,
-				'name' => $name,
-				'email' => $email,
-				'role_id' => $role_id,
-				'password' => $password,
+			// Update data ke database
+			$data_update = [
+				'kode_instansi' => $kode_instansi,
+				'id_user' => $id_user,
+				'judul_web' => $judul_web,
+				'tagline_web_slide1' => $tagline_web_slide1,
+				'tagline_web_slide2' => $tagline_web_slide2,
+				'caption_web_slide1' => $caption_web_slide1,
+				'caption_web_slide2' => $caption_web_slide2,
+				'tentang_web' => $tentang_web,
+				'footer_web' => $footer_web,
+				'alamat_instansi' => $alamat_instansi,
+				'telp_pusat' => $telp_pusat,
+				'telp' => $telp,
+				'telp_2' => $telp_2,
+				'whatsapp' => $whatsapp,
 			];
 
 			$this->db->where('id', $id);
-			$this->db->update('users', $data);
+			$this->db->update('settings', $data_update);
 
-			if ($this->db->affected_rows() > 0) {
-				// Jika berhasil, set pesan sukses
-				$this->session->set_flashdata('swal_icon', 'success');
-				$this->session->set_flashdata('swal_title', 'Berhasil');
-				$this->session->set_flashdata('swal_text', 'Pengguna berhasil diperbarui!');
-			} else {
-				// Jika tidak ada baris yang terpengaruh, set pesan error
-				$this->session->set_flashdata('swal_icon', 'error');
-				$this->session->set_flashdata('swal_title', 'Oops...');
-				$this->session->set_flashdata('swal_text', 'Kesalahan dalam memperbarui data pengguna!');
-			}
-
-			redirect('admin/manageAllUser');
+			$this->session->set_flashdata('swal_icon', 'success');
+			$this->session->set_flashdata('swal_title', 'Berhasil');
+			$this->session->set_flashdata('swal_text', 'Data berhasil diperbarui!');
+			redirect('admin/settings');
 		}
 	}
 }

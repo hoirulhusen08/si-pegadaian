@@ -60,7 +60,7 @@
 
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>4<sup style="font-size: 20px">%</sup></h3>
+                                <h3>4<sup style="font-size: 20px"></sup></h3>
                                 <p>Total Produk Gadai</p>
                             </div>
                             <div class="icon">

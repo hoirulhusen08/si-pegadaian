@@ -66,6 +66,15 @@
                         <div class="card">
                             <div class="card-header">
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addNewUser"><i class="fas fa-solid fa-plus"></i> Tambah Pengguna Baru</a>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="card-body">
@@ -336,26 +345,6 @@
     });
 </script>
 
-<!-- File Upload General -->
-<script>
-    // Preview gambar dan nama file saat browse
-    $('.custom-file-input').on('change', function() {
-        let fileName = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass("selected").html(fileName);
-
-        // Menampilkan pratinjau gambar
-        if (this.files && this.files[0]) {
-            let reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#image-preview').attr('src', e.target.result);
-                $('#image-preview2').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-</script>
 
 <!-- Generate Password Default -->
 <script>
