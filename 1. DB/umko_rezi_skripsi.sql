@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2024 at 04:57 PM
+-- Generation Time: Dec 19, 2024 at 06:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -51,7 +51,31 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `kode_instansi`, `id_user`, `judul_web`, `tagline_web_slide1`, `tagline_web_slide2`, `caption_web_slide1`, `caption_web_slide2`, `tentang_web`, `footer_web`, `alamat_instansi`, `telp_pusat`, `telp`, `telp_2`, `whatsapp`, `logo`) VALUES
-(1, 'PGD-CB-BDRJY', 3, 'SI-PEGADAIAN', 'Gadai dengan Mudah, Dapatkan Dana Cepat!', 'Jangkau Mimpi Anda dengan Solusi Pinjaman Terpercaya!', 'Temukan cara tercepat dan termudah untuk mendapatkan dana yang Anda butuhkan dengan sistem informasi pegadaian kami.', 'Jangan biarkan kekurangan dana menghalangi impian Anda. Dapatkan pinjaman cepat dan terpercaya melalui layanan kami.', '<h5 class=\"\"><b>Tentang Sistem Informasi Pegadaian</b></h5><p>Selamat datang di Sistem Informasi Pegadaian, sebuah platform digital yang dirancang untuk membantu pegadaian dalam mendisplay produk-produk mereka dengan cara yang lebih mudah, menarik, dan informatif. Sistem ini bertujuan untuk meningkatkan pengalaman pengguna dalam memahami layanan dan produk yang ditawarkan, baik produk gadai maupun non-gadai.</p><h6 class=\"\"><b>Tujuan Kami</b></h6><p>Website ini dikembangkan untuk:</p><ul><li><span style=\"font-size: 1rem;\">Mempermudah pelanggan dalam menemukan informasi tentang produk gadai dan non-gadai yang ditawarkan oleh pegadaian.</span></li><li><span style=\"font-size: 1rem;\">Memberikan pengalaman visual yang lebih baik untuk mendisplay produk.</span></li><li><span style=\"font-size: 1rem;\">Menyediakan akses cepat dan praktis terhadap informasi layanan pegadaian.</span></li></ul><h6 class=\"\"><b>Fitur Utama</b></h6><ol><li>Display Produk Gadai: Menampilkan produk gadai seperti emas, barang elektronik, kendaraan, dan barang berharga lainnya yang dapat dijadikan jaminan.</li><li>Display Produk Non-Gadai:&nbsp;Memberikan informasi tentang produk non-gadai seperti investasi, tabungan emas, pembiayaan, atau layanan lainnya yang tersedia di pegadaian.</li><li>Informasi Lengkap Produk:&nbsp;Setiap produk dilengkapi dengan deskripsi detail, syarat dan ketentuan, serta informasi harga atau bunga yang transparan.</li><li>Navigasi yang Mudah:&nbsp;Antarmuka website dirancang sederhana namun menarik, memudahkan pengguna untuk menjelajahi semua produk dan layanan.</li><li>Integrasi Fitur Kontak:&nbsp;Pelanggan dapat langsung menghubungi pegadaian melalui fitur kontak yang tersedia untuk konsultasi atau pertanyaan lebih lanjut.</li></ol><h6 class=\"\"><b>Komitmen Kami</b></h6><p>Kami berkomitmen untuk mendukung transformasi digital di bidang pegadaian dengan menyediakan sistem informasi yang handal, inovatif, dan berorientasi pada kepuasan pelanggan. Dengan Sistem Informasi Pegadaian ini, kami berharap dapat membantu pegadaian memperluas jangkauan produk mereka dan memberikan layanan terbaik kepada masyarakat.</p><p>Jelajahi website ini untuk menemukan produk dan layanan terbaik yang sesuai dengan kebutuhan Anda!</p>', 'SI-Pegadaian', 'Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia', '1500 569', '021 3155 550', '021 8063 5162', '08111 1500 569', '1734532868_logo.png');
+(1, 'PGD-CB-BDRJY', 3, 'SI-PEGADAIAN', 'Gadai dengan Mudah, Dapatkan Dana Cepat!', 'Jangkau Mimpi Anda dengan Solusi Pinjaman Terpercaya!', 'Temukan cara tercepat dan termudah untuk mendapatkan dana yang Anda butuhkan dengan sistem informasi pegadaian kami.', 'Jangan biarkan kekurangan dana menghalangi impian Anda. Dapatkan pinjaman cepat dan terpercaya melalui layanan kami.', '<h5 class=\"\"><b>Tentang Sistem Informasi Pegadaian</b></h5><p>Selamat datang di Sistem Informasi Pegadaian, sebuah platform digital yang dirancang untuk membantu pegadaian dalam mendisplay produk-produk mereka dengan cara yang lebih mudah, menarik, dan informatif. Sistem ini bertujuan untuk meningkatkan pengalaman pengguna dalam memahami layanan dan produk yang ditawarkan, baik produk gadai maupun non-gadai.</p><h6 class=\"\"><b>Tujuan Kami</b></h6><p>Website ini dikembangkan untuk:</p><ul><li><span style=\"font-size: 1rem;\">Mempermudah pelanggan dalam menemukan informasi tentang produk gadai dan non-gadai yang ditawarkan oleh pegadaian.</span></li><li><span style=\"font-size: 1rem;\">Memberikan pengalaman visual yang lebih baik untuk mendisplay produk.</span></li><li><span style=\"font-size: 1rem;\">Menyediakan akses cepat dan praktis terhadap informasi layanan pegadaian.</span></li></ul><h6 class=\"\"><b>Fitur Utama</b></h6><ol><li>Display Produk Gadai: Menampilkan produk gadai seperti emas, barang elektronik, kendaraan, dan barang berharga lainnya yang dapat dijadikan jaminan.</li><li>Display Produk Non-Gadai: Memberikan informasi tentang produk non-gadai seperti investasi, tabungan emas, pembiayaan, atau layanan lainnya yang tersedia di pegadaian.</li><li>Informasi Lengkap Produk: Setiap produk dilengkapi dengan deskripsi detail, syarat dan ketentuan, serta informasi harga atau bunga yang transparan.</li><li>Navigasi yang Mudah: Antarmuka website dirancang sederhana namun menarik, memudahkan pengguna untuk menjelajahi semua produk dan layanan.</li><li>Integrasi Fitur Kontak: Pelanggan dapat langsung menghubungi pegadaian melalui fitur kontak yang tersedia untuk konsultasi atau pertanyaan lebih lanjut.</li></ol><h6 class=\"\"><b>Komitmen Kami</b></h6><p>Kami berkomitmen untuk mendukung transformasi digital di bidang pegadaian dengan menyediakan sistem informasi yang handal, inovatif, dan berorientasi pada kepuasan pelanggan. Dengan Sistem Informasi Pegadaian ini, kami berharap dapat membantu pegadaian memperluas jangkauan produk mereka dan memberikan layanan terbaik kepada masyarakat.</p><p>Jelajahi website ini untuk menemukan produk dan layanan terbaik yang sesuai dengan kebutuhan Anda!</p>', 'SI-Pegadaian', 'Jl. Kramat Raya 162 Jakarta Pusat 10430 Indonesia', '1500 569', '021 3155 550', '021 8063 5162', '08111 1500 569', '1734532868_logo.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` int(11) NOT NULL,
+  `kode_testimoni` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `profesi` varchar(50) NOT NULL,
+  `testimoni` text NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `kode_testimoni`, `nama`, `profesi`, `testimoni`, `image`) VALUES
+(1, 'TESTI-19-12-2024', 'Dede Ziyas', 'Cyber Security', 'Aku merasa puas ketika menggunakan layanan produk gadai, saat kemarin mengajukan proses sangat cepat.', '2.jpeg'),
+(2, 'TESTI-19-12-2024', 'Ikhsan Ilman', 'Owner UMKM', 'Dengan adanya sistem informasi ini pastinya sangat bermanfaat sekali bagi masyarakat umum, good.', '3.jpeg'),
+(12, 'TESTI-19-12-2024', 'Salsabila', 'Guru', 'Aku yakin dengan adanya ini, makin banyak masyarakat terbantu dan pelanggan makin banyak.', '1.jpeg');
 
 -- --------------------------------------------------------
 
@@ -81,7 +105,8 @@ INSERT INTO `users` (`id`, `kode_user`, `name`, `email`, `telp`, `image`, `passw
 (2, 'ID12024011', 'Muhammad Alfarizi', 'mahasiswa@gmail.com', 0, 'default.jpg', '$2y$10$EYHL90J3KjMLmTa1Jt6uLuoZfjaBc3TCVpnjumYpfw1B51dpDddvG', 2, 1, 1712589882),
 (3, 'ID12024017', 'Administrators', 'admin@gmail.com', 0, '500-x-500-Blue.png', '$2y$10$bxLYmUvJe/kamJ9X0se8e.uVvBzjEpcJo.ipWpuSwrF1tCZeHlsK2', 1, 1, 1712666172),
 (6, 'ID-19-05-2024-3', 'Asep Juannn', 'juanasep59@gmail.com', 0, '500-x-500.png', '$2y$10$A.oCluMm3PVy1GgQC.BKieRV4BOxcZPvAaRSZ.mH6Lb/QnLetr.Ku', 2, 1, 1716137685),
-(10, 'ID-20-05-2024-6', 'Muhammad Alfarizi', 'muhammadalfarizi041@gmail.com', 0, 'default.jpg', '$2y$10$DON26RvdJNRgJMRYiohVAOzM5eD1HIsAWTE8vg9W.sqqxyfFkl5em', 2, 0, 1716218010);
+(10, 'ID-20-05-2024-6', 'Muhammad Alfarizi', 'muhammadalfarizi041@gmail.com', 0, 'default.jpg', '$2y$10$DON26RvdJNRgJMRYiohVAOzM5eD1HIsAWTE8vg9W.sqqxyfFkl5em', 2, 0, 1716218010),
+(11, 'ID-19-12-2024-10', 'adsf', 'saf@afsa.sadfa', 0, 'default.jpg', '$2y$10$1twPpewozs3rYkPUT0gAd.VQ5KbI.YBcbrR4qLhhrKtPWW5ICa7I.', 2, 1, 1734624031);
 
 -- --------------------------------------------------------
 
@@ -217,6 +242,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -263,10 +294,16 @@ ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users_role`
@@ -278,7 +315,7 @@ ALTER TABLE `users_role`
 -- AUTO_INCREMENT for table `user_access_menus`
 --
 ALTER TABLE `user_access_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_menus`

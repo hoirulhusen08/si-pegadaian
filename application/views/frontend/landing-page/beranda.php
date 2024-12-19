@@ -124,76 +124,22 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="testimonialBox">
-                    <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
-                    <div class="content">
-                        <p class="lead">Aku merasa puas ketika menggunakan layanan produk gadai, saat kemarin mengajukan proses sangat cepat.</p>
-                    </div>
-                    <div class="details">
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/testimoni/1.jpeg'); ?>" class="testimoni-user">
+            <?php foreach ($testimonials as $testi) : ?>
+                <div class="swiper-slide">
+                    <div class="testimonialBox">
+                        <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
+                        <div class="content">
+                            <p class="lead"><?= $testi['testimoni'] ?></p>
                         </div>
-                        <h3>Someone Famous <br> <span>Creative Designer</span></h3>
+                        <div class="details">
+                            <div class="img-box">
+                                <img src="<?= base_url('assets/image/testimoni/') . $testi['image']; ?>" class="testimoni-user">
+                            </div>
+                            <h3><?= $testi['nama'] ?> <br> <span><?= $testi['profesi'] ?></span></h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="testimonialBox">
-                    <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
-                    <div class="content">
-                        <p class="lead">Tidak diragukan lagu pelayanan ramah, dan saat melakukan pinjaman dana cairnya cepat sekali. Good Job!</p>
-                    </div>
-                    <div class="details">
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/testimoni/2.jpeg'); ?>" class="testimoni-user">
-                        </div>
-                        <h3>Someone Famous <br> <span>Creative Designer</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="testimonialBox">
-                    <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
-                    <div class="content">
-                        <p class="lead">Waah... keren sekarang sudah ada Sistem Informasi untuk Pegadaian, jadi lebih enak untuk mencari informasi terkait produk-produk Pegadaian.</p>
-                    </div>
-                    <div class="details">
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/testimoni/3.jpeg'); ?>" class="testimoni-user">
-                        </div>
-                        <h3>Someone Famous <br> <span>Creative Designer</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="testimonialBox">
-                    <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
-                    <div class="content">
-                        <p class="lead">Ini keempat Waah... keren sekarang sudah ada Sistem Informasi untuk Pegadaian, jadi lebih enak untuk mencari informasi terkait produk-produk Pegadaian.</p>
-                    </div>
-                    <div class="details">
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/testimoni/3.jpeg'); ?>" class="testimoni-user">
-                        </div>
-                        <h3>Someone Famous <br> <span>Creative Designer</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="testimonialBox">
-                    <img src="<?= base_url('assets/image/right-quote.png'); ?>" class="testimoni-quote">
-                    <div class="content">
-                        <p class="lead">Ini kelima Waah... keren sekarang sudah ada Sistem Informasi untuk Pegadaian, jadi lebih enak untuk mencari informasi terkait produk-produk Pegadaian.</p>
-                    </div>
-                    <div class="details">
-                        <div class="img-box">
-                            <img src="<?= base_url('assets/image/testimoni/3.jpeg'); ?>" class="testimoni-user">
-                        </div>
-                        <h3>Someone Famous <br> <span>Creative Designer</span></h3>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="swiper-pagination"></div>
     </div>

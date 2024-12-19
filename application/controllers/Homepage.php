@@ -8,6 +8,7 @@ class Homepage extends CI_Controller
 		$data['title'] = 'Beranda';
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
+		$data['testimonials'] = $this->db->get('testimonials')->result_array();
 
 		$this->load->view('frontend/landing-page/beranda', $data);
 

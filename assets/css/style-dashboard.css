@@ -1,31 +1,52 @@
+/* ====================== VARIABEL WARNA ====================== */
+:root {
+    --primary-color: #343A40; /* Untuk warna utama */
+    --primary-color-hover: #5a5e61; /* Untuk warna utama yang di hover */
+
+    --secondary-color: #28A745; /* Untuk warna sekunder */
+    --secondary-color-hover: #2bce51; /* Untuk warna sekunder yang di hover */
+
+    --accent-color: #027057; /* Untuk warna akses tertentu */
+    --accent-color-RGBA: rgba(7, 240, 77, .5); /* Untuk warna semua form input */
+}
+/* ====================== AKHIR VARIABEL WARNA ====================== */
+
+
 .dropdown-menu a:active {
-    background-color: #28A745;
+    background-color: var(--secondary-color);
 }
 a {
-	color: #259B40;
+	color: var(--secondary-color);
 }
 a:hover {
-	color: #005F56;
+	color: var(--secondary-color-hover);
 	text-decoration: none;
 }
-.nav-item .nav-link.active {
-    background-color: #28A745 !important;
+.dt-button.dropdown-item.buttons-columnVisibility {
+	background-color: #fff;
+}
+.dt-button.dropdown-item.buttons-columnVisibility.active {
+	background-color: var(--secondary-color) !important;
+}
+.paginate_button.page-item.active a {
+	background-color: var(--secondary-color) !important;
+	border: 1px solid var(--accent-color);
 }
 
 input:focus, select:focus, textarea:focus {
-	border: 1px solid #259B40 !important;
-	box-shadow: 0 0 6px rgba(7, 240, 77, .5) !important;
+	border: 1px solid var(--secondary-color) !important;
+	box-shadow: 0 0 6px var(--accent-color-RGBA) !important;
 }
 
 .my-alert-success {
-	border: 1px solid #28A745 !important;
-	color: #28A745 !important;
+	border: 1px solid var(--secondary-color) !important;
+	color: var(--secondary-color) !important;
 }
 .my-alert-success .close {
-	color: #113f1c !important;
+	color: var(--accent-color) !important;
 }
 .my-alert-success .close:hover {
-	color: #28A745 !important;
+	color: var(--secondary-color) !important;
 }
 
 .my-alert-danger {
@@ -39,14 +60,59 @@ input:focus, select:focus, textarea:focus {
 	color: #b10716 !important;
 }
 
+/* NAV TABS MENU */
+.my-nav-tabs .my-card-header {
+	background-color: var(--primary-color) !important;
+	color: #fff !important;
+}
+.my-nav-tabs .my-card-header .card-tools button i {
+	transition: all .3s;
+}
+.my-nav-tabs .my-card-header .card-tools button:hover i {
+	color: #fff !important;
+}
+.nav-tabs .nav-link {
+	color: #333 !important;
+	margin-left: 3px;
+	transition: all .2s;
+}
+.nav-tabs .nav-link:hover {
+	color: var(--secondary-color) !important;
+}
+.nav-tabs .nav-link.active {
+	background-color: #fafafa;
+	border-top: 2px solid var(--secondary-color-hover);
+	border-left: 2px solid var(--secondary-color-hover);
+	border-right: 2px solid var(--secondary-color-hover);
+	color: var(--secondary-color-hover) !important;
+	font-weight: bold;
+}
+
+/* SIDEBAR */
+.my-bg-sidebar {
+	background-color: var(--primary-color) !important;
+}
+.nav-sidebar .nav-item a.nav-link {
+	transition: all .3s !important;
+}
+.nav-sidebar .nav-item a.nav-link:hover {
+	background-color: var(--primary-color-hover) !important;
+}
+.nav-sidebar .nav-item a.active {
+	background-color: var(--secondary-color) !important;
+}
+.nav-sidebar .nav-item a.active:hover {
+	background-color: var(--secondary-color) !important;
+}
+
+/* SCROLL BAR */
 ::-webkit-scrollbar {
 	width: 10px;
 	scrollbar-color: #F0F0F0 #808080;
 }
-
 ::-webkit-scrollbar-thumb {
-	scrollbar-highlight-color: #026057;
-	background-color: #027057;
+	scrollbar-highlight-color: var(--accent-color);
+	background-color: var(--accent-color);
 	border-radius: 10px;
 	border: 2px solid #fff;
 }

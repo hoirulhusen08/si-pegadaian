@@ -417,15 +417,27 @@ class Admin extends CI_Controller
 	public function settings()
 	{
 		// Aturan validasi form
-		$this->form_validation->set_rules('judul_web', 'Judul Web', 'required');
-		$this->form_validation->set_rules('tagline_web_slide1', 'Tagline Slide 1', 'required');
-		$this->form_validation->set_rules('tagline_web_slide2', 'Tagline Slide 2', 'required');
-		$this->form_validation->set_rules('caption_web_slide1', 'Caption Slide 1', 'required');
-		$this->form_validation->set_rules('caption_web_slide2', 'Caption Slide 2', 'required');
+		$this->form_validation->set_rules('judul_web', 'Judul Web', 'required', [
+			'required' => 'Inputan ini tidak boleh kosong!.'
+		]);
+		$this->form_validation->set_rules('tagline_web_slide1', 'Tagline Slide 1', 'required', [
+			'required' => 'Inputan ini tidak boleh kosong!.'
+		]);
+		$this->form_validation->set_rules('tagline_web_slide2', 'Tagline Slide 2', 'required', [
+			'required' => 'Inputan ini tidak boleh kosong!.'
+		]);
+		$this->form_validation->set_rules('caption_web_slide1', 'Caption Slide 1', 'required', [
+			'required' => 'Inputan ini tidak boleh kosong!.'
+		]);
+		$this->form_validation->set_rules('caption_web_slide2', 'Caption Slide 2', 'required', [
+			'required' => 'Inputan ini tidak boleh kosong!.'
+		]);
 
 		$data['title'] = 'Pengaturan Web';
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
+		
+		$data['testimonials'] = $this->db->order_by('id', 'DESC')->get('testimonials')->result_array();
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('backend/admin/settings', $data);
@@ -512,5 +524,187 @@ class Admin extends CI_Controller
 			$this->session->set_flashdata('swal_text', 'Data berhasil diperbarui!');
 			redirect('admin/settings');
 		}
+	}
+
+	public function addTestimoni()
+	{
+		$data['title'] = 'Pengaturan Web';
+		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
+		
+		$data['testimonials'] = $this->db->get('testimonials')->result_array();
+
+		// Rules validation
+		$this->form_validation->set_rules('nama', 'Nama', 'required', [
+			'required' => 'Inputan <b>Nama</b> tidak boleh kosong!.',
+		]);
+		$this->form_validation->set_rules('profesi', 'Profesi', 'required', [
+			'required' => 'Inputan <b>Profesi</b> tidak boleh kosong!.',
+		]);
+		$this->form_validation->set_rules('testimoni', 'Testimoni', 'required', [
+			'required' => 'Inputan <b>Testimoni</b> tidak boleh kosong!.',
+		]);
+
+		if ($this->form_validation->run() == false) {
+			// Simpan pesan error validasi ke flashdata
+			$this->session->set_flashdata('error', validation_errors());
+			// Redirect ke halaman dengan hash
+			redirect('admin/settings#custom-tabs-one-testimoni');
+
+			$this->load->view('backend/admin/settings', $data);
+		} else {
+
+			$kode_testimoni = 'TESTI-' . date('d-m-Y');
+
+			$data = [
+				'kode_testimoni' => $kode_testimoni,
+				'nama' => htmlspecialchars($this->input->post('nama', true)),
+				'profesi' => htmlspecialchars($this->input->post('profesi', true)),
+				'testimoni' => $this->input->post('testimoni')
+			];
+
+			// Cek jika ada gambar yg diupload
+			$upload_image = $_FILES['image']['name'];
+
+			if ($upload_image) {
+				$config['allowed_types']    = 'gif|jpg|jpeg|png';
+				$config['max_size']         = '2048';
+				$config['upload_path']      = './assets/image/testimoni/';
+
+				$this->load->library('upload', $config);
+
+				if ($this->upload->do_upload('image')) {
+					$data['image'] = $this->upload->data('file_name');
+				} else {
+					$error = $this->upload->display_errors();
+
+					if (strpos($error, 'The uploaded file exceeds the maximum allowed size in your PHP configuration file') !== false) {
+						$error = 'Ukuran gambar maksimum 2MB';
+					} else if (strpos($error, 'The filetype you are attempting to upload is not allowed') !== false) {
+						$error = 'Format gambar harus (GIF, JPG, PNG)';
+					}
+					$this->session->set_flashdata('swal_icon', 'error');
+					$this->session->set_flashdata('swal_title', 'Gagal Mengunggah Gambar');
+					$this->session->set_flashdata('swal_text', $error);
+					redirect('admin/settings#custom-tabs-one-testimoni');
+					return;
+				}
+			} else {
+				$data['image'] = 'default.jpg';
+			}
+
+			// Insert data pengguna
+			$this->db->insert('testimonials', $data);
+
+			// Jika berhasil, set pesan sukses
+			$this->session->set_flashdata('swal_icon', 'success');
+			$this->session->set_flashdata('swal_title', 'Berhasil');
+			$this->session->set_flashdata('swal_text', 'Testimoni berhasil ditambahkan!');
+
+			redirect('admin/settings#custom-tabs-one-testimoni');
+		}
+	}
+
+	public function editTestimoni()
+	{
+		$id = $this->input->post('id');
+		$nama = $this->input->post('nama');
+		$profesi = $this->input->post('profesi');
+		$testimoni = $this->input->post('testimoni');
+
+		$testimonial['testimonial'] = $this->db->get_where('testimonials', ['id' => $id])->row_array();
+
+		// Cek jika ada gambar yg diupload
+		$upload_image = $_FILES['image']['name'];
+
+		if ($upload_image) {
+			$config['allowed_types']    = 'gif|jpg|jpeg|png';
+			$config['max_size']         = '2048';
+			$config['upload_path']      = './assets/image/testimoni/';
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('image')) {
+				$old_image = $testimonial['testimonial']['image'];
+				if ($old_image != 'default.jpg') {
+					unlink(FCPATH . 'assets/image/testimoni/' . $old_image);
+				}
+
+				$new_image = $this->upload->data('file_name');
+				$this->db->set('image', $new_image);
+			} else {
+				$error = $this->upload->display_errors();
+
+				if (strpos($error, 'The uploaded file exceeds the maximum allowed size in your PHP configuration file') !== false) {
+					$error = 'Ukuran gambar maksimum 2MB';
+				} else if (strpos($error, 'The filetype you are attempting to upload is not allowed') !== false) {
+					$error = 'Format gambar harus (GIF, JPG, PNG)';
+				}
+				$this->session->set_flashdata('swal_icon', 'error');
+				$this->session->set_flashdata('swal_title', 'Gagal Mengunggah Gambar');
+				$this->session->set_flashdata('swal_text', $error);
+				redirect('admin/settings#custom-tabs-one-testimoni');
+				return;
+			}
+		}
+		// End upload image
+
+		$data = [
+			'nama' => $nama,
+			'profesi' => $profesi,
+			'testimoni' => $testimoni
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('testimonials', $data);
+
+		if ($this->db->affected_rows() > 0) {
+			// Jika berhasil, set pesan sukses
+			$this->session->set_flashdata('swal_icon', 'success');
+			$this->session->set_flashdata('swal_title', 'Berhasil');
+			$this->session->set_flashdata('swal_text', 'Data testimoni telah diperbarui!');
+		} else {
+			// Jika tidak ada baris yang terpengaruh, set pesan error
+			$this->session->set_flashdata('swal_icon', 'error');
+			$this->session->set_flashdata('swal_title', 'Oops...');
+			$this->session->set_flashdata('swal_text', 'Data testimoni gagal diperbarui!');
+		}
+
+		redirect('admin/settings#custom-tabs-one-testimoni');
+	}
+
+	public function deleteTestimoni($id)
+	{
+		$testimonial = $this->db->where('id', $id)->get('testimonials')->row_array();
+
+		if ($testimonial) {
+			$image = $testimonial['image'];
+
+			// Periksa apakah gambar bukan default.jpg sebelum menghapusnya
+			if ($image != 'default.jpg') {
+				// Hapus gambar dari direktori
+				unlink(FCPATH . 'assets/image/testimoni/' . $image);
+			}
+
+			// Lakukan penghapusan data dari tabel
+			$this->db->where('id', $id);
+			$this->db->delete('testimonials');
+
+			// Periksa apakah penghapusan berhasil
+			if ($this->db->affected_rows() > 0) {
+				// Jika berhasil, set pesan sukses
+				$this->session->set_flashdata('swal_icon', 'success');
+				$this->session->set_flashdata('swal_title', 'Berhasil');
+				$this->session->set_flashdata('swal_text', 'Data berhasil dihapus!');
+			} else {
+				// Jika tidak ada baris yang terpengaruh, set pesan error
+				$this->session->set_flashdata('swal_icon', 'error');
+				$this->session->set_flashdata('swal_title', 'Oops...');
+				$this->session->set_flashdata('swal_text', 'Data gagal dihapus!');
+			}
+		}
+		
+		// Redirect ke halaman yang sesuai
+		redirect('admin/settings#custom-tabs-one-testimoni');
 	}
 }
