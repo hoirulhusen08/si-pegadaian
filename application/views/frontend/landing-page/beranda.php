@@ -60,6 +60,28 @@
     </button>
 </div>
 
+<!-- Section About Us Limit -->
+<section id="aboutUs" class="mt-5">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-lg">
+                <h3 class="high-title">Tentang Kami</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="content-about text-center">
+                    <?php 
+                        $tentang = $setting['tentang_web']; 
+                        $teks_pendek = substr($tentang, 0, 400); 
+                        echo $teks_pendek . '... <br><a href="' . base_url('about') . '"><u>Baca Selengkapnya</u></a>';
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Section Why Us -->
 <section id="whyUS" class="section-limit">
     <div class="container">

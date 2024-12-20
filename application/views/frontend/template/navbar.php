@@ -21,12 +21,12 @@
                         Layanan
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Produk Gadai</a>
-                        <a class="dropdown-item" href="#">Produk Non-Gadai</a>
+                        <a class="dropdown-item" href="<?= base_url('gadai'); ?>">Produk Gadai</a>
+                        <a class="dropdown-item" href="<?= base_url('nongadai'); ?>">Produk Non-Gadai</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kontak Kami</a>
+                    <a class="nav-link" href="<?= base_url('contact'); ?>">Kontak Kami</a>
                 </li>
                 <?php if ($this->session->userdata('email')) : ?>
                     <li class="nav-item dropdown">
