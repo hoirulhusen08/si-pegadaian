@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2024 at 05:36 PM
+-- Generation Time: Dec 21, 2024 at 01:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -150,7 +150,7 @@ INSERT INTO `user_access_menus` (`id`, `role_id`, `menu_id`) VALUES
 (3, 2, 2),
 (4, 1, 3),
 (16, 5, 7),
-(27, 1, 5),
+(28, 1, 5),
 (9, 3, 2),
 (10, 4, 2),
 (11, 5, 2),
@@ -160,7 +160,8 @@ INSERT INTO `user_access_menus` (`id`, `role_id`, `menu_id`) VALUES
 (17, 6, 8),
 (18, 7, 9),
 (19, 3, 10),
-(20, 2, 8);
+(20, 2, 8),
+(29, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,7 @@ INSERT INTO `user_menus` (`id`, `menu`) VALUES
 (2, 'User'),
 (3, 'Menu'),
 (4, 'Staff'),
-(5, 'Produk');
+(7, 'Product');
 
 -- --------------------------------------------------------
 
@@ -211,8 +212,8 @@ INSERT INTO `user_sub_menus` (`id`, `menu_id`, `title`, `url`, `icon`, `is_activ
 (5, 1, 'Peran', 'admin/role', 'nav-icon fas fa-solid fa-address-card', 1),
 (6, 1, 'Manajemen Pengguna', 'admin/manageAllUser', 'nav-icon fas fa-users', 1),
 (7, 1, 'Pengaturan Web', 'admin/settings', 'nav-icon fas fa-cog', 1),
-(9, 5, 'Produk Gadai', 'product', 'nav-icon fas fa-cart-plus', 1),
-(10, 5, 'Produk Non-Gadai', 'product/nongadai', 'nav-icon fas fa-credit-card', 1);
+(9, 7, 'Produk Gadai', 'product', 'nav-icon fas fa-cart-plus', 1),
+(10, 7, 'Produk Non-Gadai', 'product/nongadai', 'nav-icon fas fa-credit-card', 1);
 
 -- --------------------------------------------------------
 
@@ -318,13 +319,13 @@ ALTER TABLE `users_role`
 -- AUTO_INCREMENT for table `user_access_menus`
 --
 ALTER TABLE `user_access_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user_menus`
 --
 ALTER TABLE `user_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menus`
