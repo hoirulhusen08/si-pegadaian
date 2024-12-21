@@ -21,7 +21,8 @@ class Auth extends CI_Controller
 		]);
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Halaman Login';
+			$data['title'] = 'Login';
+			$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 			$this->load->view('auth/login', $data);
 		} else {
 			// Validasi Success
@@ -128,7 +129,8 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Halaman Registrasi';
+			$data['title'] = 'Registrasi';
+			$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 			$this->load->view('auth/register', $data);
 		} else {
 
@@ -296,7 +298,8 @@ class Auth extends CI_Controller
 		]);
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Halaman Lupa Password';
+			$data['title'] = 'Lupa Password';
+			$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 			$this->load->view('auth/forgot-password', $data);
 		} else {
 			// Validasi Success
@@ -394,6 +397,7 @@ class Auth extends CI_Controller
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Ubah Password';
+			$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 			$this->load->view('auth/change-password', $data);
 		} else {
 			// Validasi Success
@@ -423,6 +427,7 @@ class Auth extends CI_Controller
 	public function blocked()
 	{
 		$data['title'] = 'Akses Terlarang';
+		$data['setting'] = $this->db->get_where('settings', ['id' => 1])->row_array();
 		$this->load->view('auth/blocked', $data);
 	}
 
