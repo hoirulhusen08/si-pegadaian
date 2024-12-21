@@ -53,7 +53,120 @@
 <script src="<?= base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+<!-- Ini membuat Toogle Sidebar menjadi error tidak mau diklik -->
 <!-- <script src="<?= base_url('assets/template/backend/'); ?>dist/js/adminlte.min.js?v=3.2.0"></script> -->
+
+<!-- Script Sidebar Right Custom -->
+<script>
+  $(function () {
+    // Fungsi untuk menyimpan status ke local storage
+    function saveStateToLocalStorage(key, value) {
+      localStorage.setItem(key, value);
+    }
+
+    // Fungsi untuk membaca status dari local storage
+    function getStateFromLocalStorage(key) {
+      return localStorage.getItem(key) === 'true';
+    }
+
+    // Memuat status awal dari local storage
+    function loadInitialState() {
+      // Dark Mode
+      const darkMode = getStateFromLocalStorage('dark-mode');
+      $('#dark-mode-toggle').prop('checked', darkMode);
+      if (darkMode) {
+        $('body').addClass('dark-mode');
+      }
+
+      // Fixed Header
+      const fixedHeader = getStateFromLocalStorage('fixed-header');
+      $('#fixed-header-toggle').prop('checked', fixedHeader);
+      if (fixedHeader) {
+        $('body').addClass('layout-navbar-fixed');
+      }
+
+      // Fixed Sidebar
+      const fixedSidebar = getStateFromLocalStorage('fixed-sidebar');
+      $('#fixed-sidebar-toggle').prop('checked', fixedSidebar);
+      if (fixedSidebar) {
+        $('body').addClass('layout-fixed');
+      }
+
+      // Collapsed Sidebar
+      const collapsedSidebar = getStateFromLocalStorage('collapsed-sidebar');
+      $('#collapsed-sidebar-toggle').prop('checked', collapsedSidebar);
+      if (collapsedSidebar) {
+        $('body').addClass('sidebar-collapse');
+      }
+
+      // Fixed Footer
+      const fixedFooter = getStateFromLocalStorage('fixed-footer');
+      $('#fixed-footer-toggle').prop('checked', fixedFooter);
+      if (fixedFooter) {
+        $('body').addClass('layout-footer-fixed');
+      }
+    }
+
+    // Memuat status awal
+    loadInitialState();
+
+    // Event Listener untuk Dark Mode
+    $('#dark-mode-toggle').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      saveStateToLocalStorage('dark-mode', isChecked);
+      if (isChecked) {
+        $('body').addClass('dark-mode');
+      } else {
+        $('body').removeClass('dark-mode');
+      }
+    });
+
+    // Event Listener untuk Fixed Header
+    $('#fixed-header-toggle').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      saveStateToLocalStorage('fixed-header', isChecked);
+      if (isChecked) {
+        $('body').addClass('layout-navbar-fixed');
+      } else {
+        $('body').removeClass('layout-navbar-fixed');
+      }
+    });
+
+    // Event Listener untuk Fixed Sidebar
+    $('#fixed-sidebar-toggle').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      saveStateToLocalStorage('fixed-sidebar', isChecked);
+      if (isChecked) {
+        $('body').addClass('layout-fixed');
+      } else {
+        $('body').removeClass('layout-fixed');
+      }
+    });
+
+    // Event Listener untuk Collapsed Sidebar
+    $('#collapsed-sidebar-toggle').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      saveStateToLocalStorage('collapsed-sidebar', isChecked);
+      if (isChecked) {
+        $('body').addClass('sidebar-collapse');
+      } else {
+        $('body').removeClass('sidebar-collapse');
+      }
+    });
+
+    // Event Listener untuk Fixed Footer
+    $('#fixed-footer-toggle').on('change', function () {
+      const isChecked = $(this).is(':checked');
+      saveStateToLocalStorage('fixed-footer', isChecked);
+      if (isChecked) {
+        $('body').addClass('layout-footer-fixed');
+      } else {
+        $('body').removeClass('layout-footer-fixed');
+      }
+    });
+  });
+</script>
+
 
 <!-- Config Datatables -->
 <script>

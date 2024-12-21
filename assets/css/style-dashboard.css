@@ -32,11 +32,19 @@ a:hover {
 	background-color: var(--secondary-color) !important;
 	border: 1px solid var(--accent-color);
 }
-
 input:focus, select:focus, textarea:focus {
 	border: 1px solid var(--secondary-color) !important;
 	box-shadow: 0 0 6px var(--accent-color-RGBA) !important;
 }
+select {
+	-webkit-appearance: none;  /* Untuk Chrome dan Safari */
+	-moz-appearance: none;     /* Untuk Firefox */
+	appearance: none;          /* CSS standar */
+	background-color: #333;    /* Ganti dengan warna dark mode */
+	color: white;              /* Warna teks */
+	border: 1px solid #444;    /* Border */
+	padding: 10px;             /* Padding untuk tampilan lebih baik */
+  }
 
 .my-alert-success {
 	border: 1px solid var(--secondary-color) !important;
@@ -116,3 +124,59 @@ input:focus, select:focus, textarea:focus {
 	border-radius: 10px;
 	border: 2px solid #fff;
 }
+
+
+/* ============================== STYLE DARK MODE ============================== */
+/* Variabel */
+:root {
+    --primary-dark: #28A745; /* Untuk warna sekunder */
+    --primary-dark-hover: #2bce51; /* Untuk warna sekunder yang di hover */
+}
+/* End Variabel */
+
+/* body.dark-mode .brand-link:hover, body.dark-mode .breadcrumb li a:hover, body.dark-mode .main-footer a:hover, body.dark-mode .container-passconfpass-admin a:hover {
+	color: var(--primary-dark-hover) !important;
+} */
+body.dark-mode .navbar {
+	background-color: #343A40 !important;
+}
+body.dark-mode .navbar ul, body.dark-mode .navbar ul li, body.dark-mode .navbar ul li a {
+	color: #bbb !important;
+	transition: all .3s;
+}
+body.dark-mode .navbar ul li a:hover {
+	color: #eee !important;
+}
+body.dark-mode .nav-tabs .nav-link {
+	color: var(--primary-dark) !important;
+}
+body.dark-mode .nav-tabs .nav-link.active {
+	background-color: #434a50 !important;
+	color: var(--primary-dark-hover) !important;
+	border-top: 2px solid var(--secondary-color-hover);
+	border-left: 2px solid var(--secondary-color-hover);
+	border-right: 2px solid var(--secondary-color-hover);
+}
+body.dark-mode .container-passconfpass-admin {
+	background-color: #41484e !important;
+}
+
+/* Dark Auto Fill Inputan */
+/* Menargetkan input yang terisi otomatis */
+body.dark-mode input:-webkit-autofill {
+	background-color: #343A40 !important; /* Ganti dengan warna background dark mode yang sesuai */
+	color: white !important; /* Warna teks sesuai tema dark */
+	box-shadow: 0 0 0px 1000px #343A40 inset !important; /* Pastikan border atau shadow sesuai */
+}
+
+body.dark-mode input:focus:-webkit-autofill {
+	background-color: #343A40 !important; /* Ganti dengan warna dark mode */
+	color: white !important; /* Warna teks sesuai tema dark */
+}
+
+/* Untuk browser selain WebKit (Firefox, dll) */
+	body.dark-mode input:-moz-autofill {
+	background-color: #343A40 !important;
+	color: white !important;
+}
+  

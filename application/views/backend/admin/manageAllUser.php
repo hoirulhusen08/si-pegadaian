@@ -198,7 +198,7 @@
                             </select>
                             <?= form_error('role', '<small class="text-danger pl-1">', '</small>'); ?>
                         </div>
-                        <div class="card p-2" style="background-color: #efefef;">
+                        <div class="card p-2 container-passconfpass-admin" style="background-color: #efefef;">
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control <?= (form_error('password') ? 'is-invalid' : '') ?>" id="generatePasswordDefaultAddUser" placeholder="Password..." value="<?= set_value('password'); ?>">
                                 <?= form_error('password', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -287,7 +287,7 @@
                                 </select>
                             </div>
                             <hr>
-                            <div class="card p-2" style="background-color: #efefef;">
+                            <div class="card p-2 container-passconfpass-admin" style="background-color: #efefef;">
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control" id="generatePasswordDefaultUbahUser<?= $no; ?>" placeholder="Password baru...">
                                 </div>
